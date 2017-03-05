@@ -1,0 +1,9 @@
+CREATE DATABASE Mini;
+
+Create Table Book (name VARCHAR(50), publisher VARCHAR(50), year DATE, description VARCHAR(255));
+
+
+INSERT INTO `Book`(`name`, `publisher`, `year`, `description`) VALUES ("Win or Learn","John Kavanagh",2016,"Conor McGregor's trainer tells the amazing story of his long road to success in the world's fastest-growing sport");
+INSERT INTO `Book`(`name`, `publisher`, `year`, `description`) VALUES ("The Way of the Fight","Georges St-Pierre",2013,"Revealing how he overcame bullying and injury to become an internationally celebrated athlete and champion.");
+INSERT INTO `Book`(`name`, `publisher`, `year`, `description`) VALUES ("Sapiens: A Brief History of Humankind","
+Yuval Noah Harari",2015,"Planet Earth is 4.5 billion years old. In just a fraction of that time, one species among countless others has conquered it. Us.");
