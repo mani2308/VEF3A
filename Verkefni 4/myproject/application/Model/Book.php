@@ -17,7 +17,7 @@ class Book extends Model
      */
     public function getallBooks()
     {
-        $sql = "SELECT book_id, name, publisher, year,description FRqOM Book";
+        $sql = "SELECT id, name, publisher, year,description FROM book";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -28,7 +28,7 @@ class Book extends Model
      */
     public function addbook($name, $publisher, $year, $description)
     {
-        $sql = "INSERT INTO Book (name, publisher, year,description) VALUES (:name, :publisher, :year, :description)";
+        $sql = "INSERT INTO book (name, publisher, year,description) VALUES (:name, :publisher, :year, :description)";
         $query = $this->db->prepare($sql);
         $parameters = array(':name'=>$name, ':publisher'=>$publisher, ':year'=>$year, ':description'=>$description );
         // useful for debugging: you can see the SQL behind above construction by using:
@@ -40,7 +40,7 @@ class Book extends Model
      */
     public function deletebook($book_id)
     {
-        $sql = "DELETE FROM Book WHERE book_id = :book_id";
+        $sql = "DELETE FROM book WHERE book_id = :book_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':book_id' => $book_id);
         // useful for debugging: you can see the SQL behind above construction by using:
@@ -62,7 +62,7 @@ class Book extends Model
 
     public function updatebook($name, $publisher, $year, $description, $book_id)
     {
-        $sql = "UPDATE Book SET name = :name, publisher = :publisher, year = :year,description = :description WHERE book_id = :book_id";
+        $sql = "UPDATE book SET name = :name, publisher = :publisher, year = :year,description = :description WHERE book_id = :book_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':name' => $name, ':publisher' => $publisher, ':year' => $year,':description' => $description, ':book_id' => $book_id);
         // useful for debugging: you can see the SQL behind above construction by using:
@@ -72,7 +72,7 @@ class Book extends Model
 
     public function getAmountofBooks()
     {
-        $sql = "SELECT COUNT(name) AS amount_of_books FROM Book";
+        $sql = "SELECT COUNT(name) AS amount_of_books FROM book";
         $query = $this->db->prepare($sql);
         $query->execute();
         // fetch() is the PDO method that get exactly one result
