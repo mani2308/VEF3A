@@ -4,7 +4,7 @@ include "Json.php";
 
 if($_POST != 0) {
     $newdata['Nafn'] = $_POST['Nafn'];
-    $newdata['Register_Photo'] = $_POST['Register Photo'];
+    $newdata['Slóð'] = $_POST['Slóð'];
     $inp = file_get_contents('../JsonMyndir/myndir.json');
 
     $cache = json_decode($inp);
@@ -12,11 +12,13 @@ if($_POST != 0) {
     echo "<br>";
     $jsonData = json_encode($cache);
     echo $jsonData;
+
     if (file_exists("../JsonMyndir/myndir.json")) {
         echo "<br>";
         echo "Photo Uploaded";
         echo "<br>";
     }
+
     file_put_contents('../JsonMyndir/myndir.json', $jsonData);
     $put = file_put_contents('../JsonMyndir/myndir.json', $jsonData);
     echo $put . "<br>";

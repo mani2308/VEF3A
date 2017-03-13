@@ -1,7 +1,7 @@
 <?php
 
 include "Incl.php";
-$JSON = file_get_contents("../JsonMyndir/myndir.json");
+$JSON = file_get_contents("JsonMyndir/myndir.json");
 $JSON_A = json_decode($JSON,true);
 ?>
 
@@ -13,7 +13,7 @@ $JSON_A = json_decode($JSON,true);
         <input type="text" name="Nafn" value="">
         <br>
         <label> Myndaslóð:  </label><br>
-        <input type="text" name="Register_Photo" value="">
+        <input type="text" name="Slóð" value="">
         <br><br>
         <input type="submit" value="Register Photo">
     </form>
@@ -24,12 +24,15 @@ $JSON_A = json_decode($JSON,true);
     foreach($JSON_A as $k) {
         echo $k["Nafn"] . " ";
         echo "<br>";
-        $img = $k['Register_Photo'];
-        echo $k['Register_Photo'];
+        $img = $k['Slóð'];
+        echo $k['Slóð'];
         echo "<br>";
         echo '<img src="' . $img . '" height="500px" width="800px">';
         echo "<br>";
     }
+
+    print_r($JSON_A);
+    gettype($JSON);
     ?>
 
 
