@@ -1,0 +1,7 @@
+CREATE TABLE `verkefni6`.`userbase`
+( `userid` INT(11) NOT NULL AUTO_INCREMENT ,
+`name` VARCHAR(100) NOT NULL ,
+`username` VARCHAR(50) NOT NULL ,
+`pass` VARCHAR(50) NOT NULL ,
+`email` VARCHAR(50) NOT NULL ,
+UNIQUE `username` (`username`)) ENGINE = InnoDB;
