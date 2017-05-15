@@ -35,13 +35,7 @@ class Helper
                 $values[$key] = 'NULL';
             }
         }
-        /*
-        echo "<br> [DEBUG] Keys:<pre>";
-        print_r($keys);
-        echo "\n[DEBUG] Values: ";
-        print_r($values);
-        echo "</pre>";
-        */
+
         $raw_sql = preg_replace($keys, $values, $raw_sql, 1, $count);
         return $raw_sql;
     }

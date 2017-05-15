@@ -1,13 +1,24 @@
+<?php session_start();
+if(isset($_SESSION['username']))
+{
+    $session = true;
+    $username = $_SESSION['username'];
+}
+else
+{
+    $session = false;
+};
+?>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Lokaverk-Mani</title>
-
-    <!-- "Harry" Styles -->
+    <title>Lokaverkefni</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="IE=9" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="http://139.59.191.60/css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css"  href="<?php echo URL?>/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<?php echo URL?>/fonts/font-awesome/css/font-awesome.css">
@@ -26,7 +37,7 @@
 </head>
 <body>
 
-<!-- navigation menu -->
+<!-- Navigation menu -->
 <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
 
@@ -37,15 +48,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand"  href="">Lokaverk-Mani</a>
+            <a class="navbar-brand"  href="<?php echo URL; ?>">Lokaverkefni</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#tf-home" class="page-scroll">Home</a></li>
-                <li><a href="#tf-about" class="page-scroll">About us</a></li>
+                <li><a href="http://139.59.191.60" class="page-scroll">Home</a></li>
+                <li><a href="#tf-about" class="page-scroll">About Us</a></li>
                 <li><a href="#tf-works" class="page-scroll">Dishes</a></li>
+                <?php if(isset($_SESSION['username'])){ echo "<li><a href=". URL."profile" ." class=\"page-scroll\">My Page</a></li>";}
+                else {echo "<li><a href=". URL."register" . " class=\"page-scroll\">Log In / Register</a></li>";}?>
+                <?php if(isset($_SESSION['username'])){ echo "<li><a href=". URL. 'profile/logoutlink'." class=\"page-scroll\">Log Out</a></li>";} ?>
             </ul>
         </div>
     </div>
